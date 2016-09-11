@@ -39,10 +39,10 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     const URL_ENV_VARIABLE = 'WP_HOME';
 
     /**
-     * The name of the WPSO PRO package
+     * The name of the WPOS PRO package
      */
 
-    public static function WPSO_PRO_PACKAGE_NAMES()
+    public static function WPOS_PRO_PACKAGE_NAMES()
     {
         return [
             'deliciousbrains/wp-offload-s3-pro',
@@ -60,7 +60,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      * The url where WPM PRO can be downloaded (without version and key)
      */
 
-    public static function WPSO_PRO_PACKAGE_URLS()
+    public static function WPOS_PRO_PACKAGE_URLS()
     {
         return [
             'deliciousbrains/wp-offload-s3-pro' => 'https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?',
@@ -138,7 +138,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     {
         $package = $this->getPackageFromOperation($event->getOperation());
 
-        if (in_array($package->getName(), self::WPSO_PRO_PACKAGE_NAMES())) {
+        if (in_array($package->getName(), self::WPOS_PRO_PACKAGE_NAMES())) {
             $version = $this->validateVersion($package->getPrettyVersion(), $package->getName());
             $package->setDistUrl(
                 $this->addParameterToUrl($package->getDistUrl(), 'v', $version)
@@ -233,9 +233,9 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      * @param string The url that should be checked
      * @return bool
      */
-    protected function isWPSOProPackageUrl($url)
+    protected function isWPOSProPackageUrl($url)
     {
-        return in_array($url, self::WPSO_PRO_PACKAGE_URLS()) !== false;
+        return in_array($url, self::WPOS_PRO_PACKAGE_URLS()) !== false;
     }
 
     /**

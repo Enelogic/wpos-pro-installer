@@ -147,7 +147,7 @@ Replace `"version": "*.*.*"` with your desired version.
 
 **2. Make your WP Offload S3 key available**
 
-Set the environment variable **`WPOS_PRO_KEY`** to your [WP Offload S3 key][wpm-account].
+Set the environment variable **`WPOS_PRO_KEY`** to your WP Offload S3 key.
 
 Alternatively you can add an entry to your **`.env`** file:
 
