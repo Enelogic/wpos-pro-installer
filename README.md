@@ -14,7 +14,7 @@ It reads your :key: WP Offload S3 key from the **environment** or a **.env file*
    (based on this [gist][package-gist]):**
 
 ```json
-{
+    {
       "type": "package",
       "package": {
         "name": "deliciousbrains/wp-offload-s3-pro",
@@ -25,7 +25,7 @@ It reads your :key: WP Offload S3 key from the **environment** or a **.env file*
           "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?"
         },
         "require": {
-          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "intelligence/wpos-pro-installer": "^1.0.2",
           "composer/installers": "^1.0"
         }
       }
@@ -41,7 +41,7 @@ It reads your :key: WP Offload S3 key from the **environment** or a **.env file*
           "url": "https://deliciousbrains.com/dl/wp-offload-s3-assets-latest.zip?"
         },
         "require": {
-          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "intelligence/wpos-pro-installer": "^1.0.2",
           "composer/installers": "^1.0"
         }
       }
@@ -57,7 +57,7 @@ It reads your :key: WP Offload S3 key from the **environment** or a **.env file*
           "url": "https://deliciousbrains.com/dl/wp-offload-s3-edd-latest.zip?"
         },
         "require": {
-          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "intelligence/wpos-pro-installer": "^1.0.2",
           "composer/installers": "^1.0"
         }
       }
@@ -73,7 +73,7 @@ It reads your :key: WP Offload S3 key from the **environment** or a **.env file*
           "url": "https://deliciousbrains.com/dl/wp-offload-s3-woocommerce-latest.zip?"
         },
         "require": {
-          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "intelligence/wpos-pro-installer": "^1.0.2",
           "composer/installers": "^1.0"
         }
       }
@@ -89,7 +89,7 @@ It reads your :key: WP Offload S3 key from the **environment** or a **.env file*
           "url": "https://deliciousbrains.com/dl/wp-offload-s3-enable-media-replace-latest.zip?"
         },
         "require": {
-          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "intelligence/wpos-pro-installer": "^1.0.2",
           "composer/installers": "^1.0"
         }
       }
@@ -105,7 +105,7 @@ It reads your :key: WP Offload S3 key from the **environment** or a **.env file*
           "url": "https://deliciousbrains.com/dl/wp-offload-s3-meta-slider-latest.zip?"
         },
         "require": {
-          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "intelligence/wpos-pro-installer": "^1.0.2",
           "composer/installers": "^1.0"
         }
       }
@@ -121,7 +121,7 @@ It reads your :key: WP Offload S3 key from the **environment** or a **.env file*
           "url": "https://deliciousbrains.com/dl/wp-offload-s3-wpml-latest.zip?"
         },
         "require": {
-          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "intelligence/wpos-pro-installer": "^1.0.2",
           "composer/installers": "^1.0"
         }
       }
@@ -137,7 +137,7 @@ It reads your :key: WP Offload S3 key from the **environment** or a **.env file*
           "url": "https://deliciousbrains.com/dl/wp-offload-s3-acf-image-crop.zip?"
         },
         "require": {
-          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "intelligence/wpos-pro-installer": "^1.0.2",
           "composer/installers": "^1.0"
         }
       }
