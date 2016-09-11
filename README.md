@@ -1,15 +1,11 @@
-# WP Migrate DB PRO Installer
+# WP Offload S3 Pro Installer
 
-[![Packagist](https://img.shields.io/packagist/v/philippbaschke/acf-pro-installer.svg?maxAge=3600)](https://packagist.org/packages/philippbaschke/acf-pro-installer)
-[![Packagist](https://img.shields.io/packagist/l/philippbaschke/acf-pro-installer.svg?maxAge=2592000)](https://github.com/PhilippBaschke/acf-pro-installer/blob/master/LICENSE)
-[![Travis](https://img.shields.io/travis/PhilippBaschke/acf-pro-installer.svg?maxAge=3600)](https://travis-ci.org/PhilippBaschke/acf-pro-installer)
-[![Coveralls](https://img.shields.io/coveralls/PhilippBaschke/acf-pro-installer.svg?maxAge=3600)](https://coveralls.io/github/PhilippBaschke/acf-pro-installer)
 
-A composer plugin that makes installing [WPM PRO] with [composer] easier.
+A composer plugin that makes installing [WP Offload S3 Pro] with [composer] easier.
 
-It reads your :key: WPM PRO key from the **environment** or a **.env file**.
+It reads your :key: WP Offload S3 key from the **environment** or a **.env file**.
 
-[WPM PRO]: hhttps://deliciousbrains.com/wp-migrate-db-pro/
+[WP Offload S3]: https://deliciousbrains.com/wp-offload-s3/
 [composer]: https://github.com/composer/composer
 
 ## Usage
@@ -21,12 +17,12 @@ It reads your :key: WPM PRO key from the **environment** or a **.env file**.
 {
       "type": "package",
       "package": {
-        "name": "deliciousbrains/wp-migrate-db-pro",
+        "name": "deliciousbrains/wp-offload-s3-pro",
         "type": "wordpress-plugin",
-        "version": "1.4.6",
+        "version": "1.1.6",
         "dist": {
           "type": "zip",
-          "url": "https://deliciousbrains.com/dl/wp-migrate-db-pro-latest.zip?"
+          "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?"
         },
         "require": {
           "igniteonline/wpm-pro-installer": "^1.0.2",
@@ -37,12 +33,108 @@ It reads your :key: WPM PRO key from the **environment** or a **.env file**.
     {
       "type": "package",
       "package": {
-        "name": "deliciousbrains/wp-migrate-db-pro-media-files",
+        "name": "deliciousbrains/wp-offload-s3-assets",
         "type": "wordpress-plugin",
-        "version": "1.3.1",
+        "version": "1.2",
         "dist": {
           "type": "zip",
-          "url": "https://deliciousbrains.com/dl/wp-migrate-db-pro-media-files-latest.zip?"
+          "url": "https://deliciousbrains.com/dl/wp-offload-s3-assets-latest.zip?"
+        },
+        "require": {
+          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-offload-s3-edd",
+        "type": "wordpress-plugin",
+        "version": "1.0.4",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-offload-s3-edd-latest.zip?"
+        },
+        "require": {
+          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-offload-s3-woocommerce",
+        "type": "wordpress-plugin",
+        "version": "1.0.5",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-offload-s3-woocommerce-latest.zip?"
+        },
+        "require": {
+          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-offload-s3-enable-media-replace",
+        "type": "wordpress-plugin",
+        "version": "1.0.1",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-offload-s3-enable-media-replace-latest.zip?"
+        },
+        "require": {
+          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-offload-s3-meta-slider",
+        "type": "wordpress-plugin",
+        "version": "1.0.1",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-offload-s3-meta-slider-latest.zip?"
+        },
+        "require": {
+          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-offload-s3-wpml",
+        "type": "wordpress-plugin",
+        "version": "1.0.1",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-offload-s3-wpml-latest.zip?"
+        },
+        "require": {
+          "igniteonline/wpm-pro-installer": "^1.0.2",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-offload-s3-acf-image-crop",
+        "type": "wordpress-plugin",
+        "version": "1.0",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-offload-s3-acf-image-crop.zip?"
         },
         "require": {
           "igniteonline/wpm-pro-installer": "^1.0.2",
@@ -53,21 +145,21 @@ It reads your :key: WPM PRO key from the **environment** or a **.env file**.
 ```
 Replace `"version": "*.*.*"` with your desired version.
 
-**2. Make your WPM PRO key available**
+**2. Make your WP Offload S3 key available**
 
-Set the environment variable **`WPM_PRO_KEY`** to your [WPM PRO key][wpm-account].
+Set the environment variable **`WPOS_PRO_KEY`** to your [WP Offload S3 key][wpm-account].
 
 Alternatively you can add an entry to your **`.env`** file:
 
 ```ini
 # .env (same directory as composer.json)
-WPM_PRO_KEY=Your-Key-Here
+WPOS_PRO_KEY=Your-Key-Here
 ```
 
-**3. Require WPM PRO**
+**3. Require WP Offload S3**
 
 ```sh
-composer require deliciousbrains/wp-migrate-db-pro:*
+composer require deliciousbrains/wp-offload-s3-pro:*
 ```
 Unfortunately, DeliciousBrains is not exposing a way of retrieving different versions of their plugin.
 Because of this, changing the version in the package section will download the latest version regardless.
@@ -75,4 +167,4 @@ You have to manually change the version in your `composer.json` file to manually
 [composer-repositories]: https://getcomposer.org/doc/04-schema.md#repositories
 [composer-versions]: https://getcomposer.org/doc/articles/versions.md
 [package-gist]: https://gist.github.com/dmalatesta/4fae4490caef712a51bf
-[wpm-account]: https://deliciousbrains.com/signin/
+[wpos-account]: https://deliciousbrains.com/signin/

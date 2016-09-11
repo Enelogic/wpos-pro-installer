@@ -1,4 +1,4 @@
-<?php namespace IgniteOnline\WPMProInstaller\Exceptions;
+<?php namespace intelligence\WPOSProInstaller\Exceptions;
 
 /**
  * Exception thrown if the ACF PRO key is not available in the environment
@@ -11,7 +11,7 @@ class MissingKeyException extends \Exception
         \Exception $previous = null
     ) {
         parent::__construct(
-            'Could not find a key for WPM PRO. ' .
+            'Could not find a key for WPOS PRO. ' .
             'Please make it available via the environment variable ' .
             $message,
             $code,

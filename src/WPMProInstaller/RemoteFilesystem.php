@@ -1,4 +1,4 @@
-<?php namespace IgniteOnline\WPMProInstaller;
+<?php namespace intelligence\WPOSProInstaller;
 
 use Composer\Config;
 use Composer\IO\IOInterface;
@@ -16,7 +16,7 @@ class RemoteFilesystem extends \Composer\Util\RemoteFilesystem
      * @access protected
      * @var string
      */
-    protected $wpmFileUrl;
+    protected $wposFileUrl;
 
      /**
      * Constructor
@@ -29,13 +29,13 @@ class RemoteFilesystem extends \Composer\Util\RemoteFilesystem
      * @param bool $disableTls
      */
     public function __construct(
-        $wpmFileUrl,
+        $wposFileUrl,
         IOInterface $io,
         Config $config = null,
         array $options = [],
         $disableTls = false
     ) {
-        $this->wpmFileUrl = $wpmFileUrl;
+        $this->wposFileUrl = $wposFileUrl;
         parent::__construct($io, $config, $options, $disableTls);
     }
 
@@ -61,7 +61,7 @@ class RemoteFilesystem extends \Composer\Util\RemoteFilesystem
     ) {
         return parent::copy(
             $originUrl,
-            $this->wpmFileUrl,
+            $this->wposFileUrl,
             $fileName,
             $progress,
             $options

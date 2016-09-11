@@ -1,4 +1,4 @@
-<?php namespace IgniteOnline\WPMProInstaller;
+<?php namespace intelligence\WPOSProInstaller;
 
 use Composer\Composer;
 use Composer\DependencyResolver\Operation\OperationInterface;
@@ -10,7 +10,7 @@ use Composer\Plugin\PluginEvents;
 use Composer\Plugin\PluginInterface;
 use Composer\Plugin\PreFileDownloadEvent;
 use Dotenv\Dotenv;
-use IgniteOnline\WPMProInstaller\Exceptions\MissingKeyException;
+use intelligence\WPOSProInstaller\Exceptions\MissingKeyException;
 
 /**
  * A composer plugin that makes installing ACF PRO possible
@@ -31,7 +31,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      * The name of the environment variable
      * where the ACF PRO key should be stored.
      */
-    const KEY_ENV_VARIABLE = 'WPM_PRO_KEY';
+    const KEY_ENV_VARIABLE = 'WPOS_PRO_KEY';
 
     /**
      * The URL or the project
@@ -39,14 +39,20 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     const URL_ENV_VARIABLE = 'WP_HOME';
 
     /**
-     * The name of the WPM PRO package
+     * The name of the WPSO PRO package
      */
 
-    public static function WPM_PRO_PACKAGE_NAMES()
+    public static function WPSO_PRO_PACKAGE_NAMES()
     {
         return [
-            'deliciousbrains/wp-migrate-db-pro',
-            'deliciousbrains/wp-migrate-db-pro-media-files',
+            'deliciousbrains/wp-offload-s3-pro',
+            'deliciousbrains/wp-offload-s3-assets',
+            'deliciousbrains/wp-offload-s3-edd',
+            'deliciousbrains/wp-offload-s3-woocommerce',
+            'deliciousbrains/wp-offload-s3-enable-media-replace',
+            'deliciousbrains/wp-offload-s3-meta-slider',
+            'deliciousbrains/wp-offload-s3-wpml',
+            'deliciousbrains/wp-offload-s3-acf-image-crop',
         ];
     }
 
@@ -54,12 +60,17 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      * The url where WPM PRO can be downloaded (without version and key)
      */
 
-    public static function WPM_PRO_PACKAGE_URLS()
+    public static function WPSO_PRO_PACKAGE_URLS()
     {
         return [
-            'deliciousbrains/wp-migrate-db-pro' => 'https://deliciousbrains.com/dl/wp-migrate-db-pro-latest.zip?',
-            'deliciousbrains/wp-migrate-db-pro-media-files' => 'https://deliciousbrains.com/dl/wp-migrate-db-pro-media-files-latest.zip?',
-
+            'deliciousbrains/wp-offload-s3-pro' => 'https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?',
+            'deliciousbrains/wp-offload-s3-assets' => 'https://deliciousbrains.com/dl/wp-offload-s3-assets-latest.zip?',
+            'deliciousbrains/wp-offload-s3-edd' => 'https://deliciousbrains.com/dl/wp-offload-s3-edd-latest.zip?',
+            'deliciousbrains/wp-offload-s3-woocommerce' => 'https://deliciousbrains.com/dl/wp-offload-s3-woocommerce-latest.zip?',
+            'deliciousbrains/wp-offload-s3-enable-media-replace' => 'https://deliciousbrains.com/dl/wp-offload-s3-enable-media-replace-latest.zip?',
+            'deliciousbrains/wp-offload-s3-meta-slider' => 'https://deliciousbrains.com/dl/wp-offload-s3-meta-slider-latest.zip?',
+            'deliciousbrains/wp-offload-s3-wpml' => 'https://deliciousbrains.com/dl/wp-offload-s3-wpml-latest.zip?',
+            'deliciousbrains/wp-offload-s3-acf-image-crop' => 'https://deliciousbrains.com/dl/wp-offload-s3-acf-image-crop.zip?',    
         ];
     }
 
@@ -127,7 +138,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     {
         $package = $this->getPackageFromOperation($event->getOperation());
 
-        if (in_array($package->getName(), self::WPM_PRO_PACKAGE_NAMES())) {
+        if (in_array($package->getName(), self::WPSO_PRO_PACKAGE_NAMES())) {
             $version = $this->validateVersion($package->getPrettyVersion(), $package->getName());
             $package->setDistUrl(
                 $this->addParameterToUrl($package->getDistUrl(), 'v', $version)
@@ -151,11 +162,11 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     {
         $processedUrl = $event->getProcessedUrl();
 
-        if ($this->isWPMProPackageUrl($processedUrl)) {
+        if ($this->isWPOSProPackageUrl($processedUrl)) {
             $processedUrl = $processedUrl . 'site_url=' . $this->getSiteUrlFromEnv();
 
             $rfs = $event->getRemoteFilesystem();
-            $wpmRfs = new RemoteFilesystem(
+            $wposRfs = new RemoteFilesystem(
                 $this->addParameterToUrl(
                     $processedUrl,
                     'licence_key',
@@ -166,7 +177,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
                 $rfs->getOptions(),
                 $rfs->isTlsDisabled()
             );
-            $event->setRemoteFilesystem($wpmRfs);
+            $event->setRemoteFilesystem($wposRfs);
         }
     }
 
@@ -222,9 +233,9 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      * @param string The url that should be checked
      * @return bool
      */
-    protected function isWPMProPackageUrl($url)
+    protected function isWPSOProPackageUrl($url)
     {
-        return in_array($url, self::WPM_PRO_PACKAGE_URLS()) !== false;
+        return in_array($url, self::WPSO_PRO_PACKAGE_URLS()) !== false;
     }
 
     /**
@@ -237,7 +248,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      *
      * @access protected
      * @return string The key from the environment
-     * @throws IgniteOnline\WPMProInstaller\Exceptions\MissingKeyException
+     * @throws intelligence\WPMProInstaller\Exceptions\MissingKeyException
      */
     protected function getKeyFromEnv()
     {
@@ -261,7 +272,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      *
      * @access protected
      * @return string The key from the environment
-     * @throws IgniteOnline\WPMProInstaller\Exceptions\MissingKeyException
+     * @throws intelligence\WPMProInstaller\Exceptions\MissingKeyException
      */
     protected function getSiteUrlFromEnv()
     {
