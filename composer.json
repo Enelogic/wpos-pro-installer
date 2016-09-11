@@ -1,6 +1,6 @@
 {
   "name": "intelligence/wpos-pro-installer",
-  "description": "An install helper for WP Migrate DB Pro and WP Migrate DB Pro Media Files",
+  "description": "An install helper for WP S3 Offload Pro and it's addons",
   "type": "composer-plugin",
   "license": "MIT",
   "authors": [
