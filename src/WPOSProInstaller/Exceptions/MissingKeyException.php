@@ -1,4 +1,4 @@
-<?php namespace intelligence\WPOSProInstaller\Exceptions;
+<?php namespace enelogic\WPOSProInstaller\Exceptions;
 
 /**
  * Exception thrown if the ACF PRO key is not available in the environment

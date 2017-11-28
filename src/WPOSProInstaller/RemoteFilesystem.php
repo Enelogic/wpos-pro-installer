@@ -1,4 +1,4 @@
-<?php namespace intelligence\WPOSProInstaller;
+<?php namespace enelogic\WPOSProInstaller;
 
 use Composer\Config;
 use Composer\IO\IOInterface;

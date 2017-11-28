@@ -1,4 +1,4 @@
-<?php namespace intelligence\WPOSProInstaller;
+<?php namespace enelogic\WPOSProInstaller;
 
 use Composer\Composer;
 use Composer\DependencyResolver\Operation\OperationInterface;
@@ -10,7 +10,7 @@ use Composer\Plugin\PluginEvents;
 use Composer\Plugin\PluginInterface;
 use Composer\Plugin\PreFileDownloadEvent;
 use Dotenv\Dotenv;
-use intelligence\WPOSProInstaller\Exceptions\MissingKeyException;
+use enelogic\WPOSProInstaller\Exceptions\MissingKeyException;
 
 /**
  * A composer plugin that makes installing ACF PRO possible
@@ -70,7 +70,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
             'deliciousbrains/wp-offload-s3-enable-media-replace' => 'https://deliciousbrains.com/dl/wp-offload-s3-enable-media-replace-latest.zip?',
             'deliciousbrains/wp-offload-s3-meta-slider' => 'https://deliciousbrains.com/dl/wp-offload-s3-meta-slider-latest.zip?',
             'deliciousbrains/wp-offload-s3-wpml' => 'https://deliciousbrains.com/dl/wp-offload-s3-wpml-latest.zip?',
-            'deliciousbrains/wp-offload-s3-acf-image-crop' => 'https://deliciousbrains.com/dl/wp-offload-s3-acf-image-crop-latest.zip?',    
+            'deliciousbrains/wp-offload-s3-acf-image-crop' => 'https://deliciousbrains.com/dl/wp-offload-s3-acf-image-crop-latest.zip?',
         ];
     }
 
@@ -248,7 +248,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      *
      * @access protected
      * @return string The key from the environment
-     * @throws intelligence\WPMProInstaller\Exceptions\MissingKeyException
+     * @throws enelogic\WPMProInstaller\Exceptions\MissingKeyException
      */
     protected function getKeyFromEnv()
     {
@@ -272,7 +272,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      *
      * @access protected
      * @return string The key from the environment
-     * @throws intelligence\WPMProInstaller\Exceptions\MissingKeyException
+     * @throws enelogic\WPMProInstaller\Exceptions\MissingKeyException
      */
     protected function getSiteUrlFromEnv()
     {
