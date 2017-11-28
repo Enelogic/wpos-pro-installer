@@ -117,7 +117,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            PluginEvents::PRE_FILE_DOWNLOAD => 'addKey'
+            PluginEvents::PRE_FILE_DOWNLOAD => ['addKey', -1]
         ];
     }
 
